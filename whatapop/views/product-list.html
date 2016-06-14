@@ -1,0 +1,15 @@
+<div class="row">
+    <table class="u-full-width">
+        <tbody>
+        <tr ng-repeat="product in $ctrl.products">
+            <td>
+                <img ng-src="{{ product.photos && product.photos.length > 0 ? $ctrl.getImagePath(product.photos[0]): '' }}" alt=""
+                     width="60" height="60">
+
+            </td>
+            <td><a ng-link="['ProductDetail',{id: product.id}]">{{ product.name}}</a> </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,60 @@
+<div class="container">
+
+    <div class="row">
+
+            <header class="u-full-width">
+                <h3>{{ ::$ctrl.product.name}}</h3>
+            </header>
+
+
+    </div>
+    <div class="row">
+        <div class="six columns">
+            <img ng-src="{{ $ctrl.product.photos && $ctrl.product.photos.length > 0 ? $ctrl.getImagePath($ctrl.product.photos[0]): '' }}" alt="{{ ::$ctrl.product.name }}">
+        </div>
+        <div class="four columns" >
+            <div class="row">
+                <div class="twelve columns">
+                    <label for="category">Categoria</label>
+                    <button id="category" class="button-primary" disabled="disabled">{{ $ctrl.product.category.name }}</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <label for="precio"> Precio </label>
+                    <span id="precio">{{ $ctrl.product.price | currency : '€' : '2'}}</span>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <label for="fechaPublicacion"> Fecha de publicación</label>
+                    <span id="fechaPublicacion">{{ $ctrl.product.published_date | date : 'dd/MM/yyyy' }}</span>
+                </div>
+            </div>
+            <div class="row"><br></div>
+            <div class="row">
+                <div class="twelve columns">
+                    <strong>{{ $ctrl.product.state }}</strong>
+                </div>
+            </div>
+        </div>
+        <div class="two columns">
+            <div class="row">
+                <label for="vendedor"> Vendedor</label>
+                <img id="vendedor" ng-src="{{ $ctrl.product.seller.avatar ? $ctrl.getImagePath($ctrl.product.seller.avatar): '' }}"
+                     alt="{{ ::$ctrl.product.seller.nick }}" style="border-radius:50%" width="80" height="80">
+                <p>{{ ::$ctrl.product.seller.nick }}</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns" ng-bind-html="$ctrl.product.description">
+
+        </div>
+
+    </div>
+
+
+</div>

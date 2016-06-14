@@ -1,0 +1,28 @@
+<div class="container">
+    <section class="header">
+        <h1 class="tittle">Whatapop</h1>
+    </section>
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="navbar-list">
+                <li class="navbar-image">
+                    <img src="../images/favicon.png">
+                </li>
+                <li class="navbar-item">
+                    <!--Con la directiva ng-link establecemos el nombre de ruta a navegar-->
+                    <a class="navbar-link" ng-link="['Products']">Productos</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="#">Log in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ng-outlet></ng-outlet>
+
+    <section class="u-full-width">
+        By Alma Martinez. 2016
+    </section>
+</div>
