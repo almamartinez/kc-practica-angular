@@ -1,4 +1,5 @@
 angular.module("whatapop").component("root",{
+
     $routeConfig: [
         {
             name:"Products",

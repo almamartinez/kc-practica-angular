@@ -1,0 +1,8 @@
+<div class="row">
+    <label for="categories">Categoría</label>
+    <select name="categories" id="categories" ng-model="$ctrl.catSelected">
+        <option ng-repeat="cat in $ctrl.categoriesList"
+                value=" {{ cat.id }} "> {{ cat.name }}</option>
+    </select>
+
+</div>

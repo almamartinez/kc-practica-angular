@@ -1,0 +1,30 @@
+input[type=checkbox] {
+    display: none;
+}
+
+.selling{
+    font-size: x-large;
+    color: green;
+}
+
+.sold{
+    font-size: x-large;
+    color: red;
+}
+
+.sellingsmall{
+    font-size: medium;
+    color: green;
+}
+
+.soldsmall{
+    font-size: medium;
+    color: red;
+}
+
+
+.listName{
+    text-decoration: none;
+    font-size:large;
+    color: #2c2c2c;
+}

@@ -13,30 +13,6 @@ angular.module("whatapop")
                 component:"productDetail"
             }  
         ],
-        templateUrl:"views/products.html"}
-    )
-    .component("productList",{
-        bindings: {
-            $router: '<',
-            products: '<'
-            },
-        templateUrl: "views/product-list.html",
-        controller: function(SrvProducts){
-            var self=this;
-            
-            self.$onInit = function () {
-                SrvProducts.getProducts().then(
-                    function (response) {
-                        self.products = response.data;
-                    },
-                    function (error) {
-                        self.products = undefined;
-                        //Error!!
+        templateUrl:"views/products.html"
 
-                    }
-                )
-            };
-
-            self.getImagePath = SrvProducts.getImagePath;
-        }
     });

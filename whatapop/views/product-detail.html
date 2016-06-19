@@ -35,11 +35,23 @@
             <div class="row"><br></div>
             <div class="row">
                 <div class="twelve columns">
-                    <strong>{{ $ctrl.product.state }}</strong>
+                    <p ng-class="$ctrl.product.state"><strong>{{ $ctrl.product.state | uppercase }}</strong></p>
                 </div>
             </div>
         </div>
         <div class="two columns">
+            <div>
+                <input id="favorite"
+                       type="checkbox"
+                       ng-true-value="true"
+                       ng-attr-id="{{'c' + $ctrl.product.id}}"
+                       ng-click="$ctrl.setFavourite($ctrl.product.id)"
+                       ng-checked ="$ctrl.getFavourite($ctrl.product.id)">
+                <label ng-attr-for="{{'c' + $ctrl.product.id}}">
+                    <img ng-src="{{ $ctrl.getIcon($ctrl.product.id)}}">
+                </label>
+            </div>
+            <div class="row"></br></div>
             <div class="row">
                 <label for="vendedor"> Vendedor</label>
                 <img id="vendedor" ng-src="{{ $ctrl.product.seller.avatar ? $ctrl.getImagePath($ctrl.product.seller.avatar): '' }}"

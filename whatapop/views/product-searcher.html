@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="five columns">
+            <label for="product-name">Producto</label>
+            <input id="product-name"
+                   type="text"
+                   ng-model="search.name"
+                   placeholder="¿Qué estás buscando?">
+        </div>
+        <div class="two columns"> </div>
+        <div class="five columns">
+            <categories-selector cat-selected="search.category.id"></categories-selector>
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <button class="button-primary"
+                    ng-click="doSearch()">Buscar</button>
+        </div>
+    </div>
+</div>

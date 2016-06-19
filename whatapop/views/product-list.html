@@ -1,3 +1,4 @@
+<product-searcher on-search-click="$ctrl.searchClicked(search)"></product-searcher>
 <div class="row">
     <table class="u-full-width">
         <tbody>
@@ -5,10 +6,24 @@
             <td>
                 <img ng-src="{{ product.photos && product.photos.length > 0 ? $ctrl.getImagePath(product.photos[0]): '' }}" alt=""
                      width="60" height="60">
+                <p>{{product.category.name}}</p>
 
             </td>
-            <td><a ng-link="['ProductDetail',{id: product.id}]">{{ product.name}}</a> </td>
-
+            <td><p><a class="listName" ng-link="['ProductDetail',{id: product.id}]">{{ product.name }}</a></p> </td>
+            <td>
+                <p ng-class="product.state + 'small'"><strong>{{ product.state | uppercase }}</strong></p>
+            </td>
+            <td>
+                <input id="favorite"
+                       type="checkbox"
+                       ng-true-value="true"
+                       ng-attr-id="{{'c' +product.id}}"
+                       ng-click="$ctrl.setFavourite(product.id)"
+                       ng-checked ="$ctrl.getFavourite(product.id)">
+                <label ng-attr-for="{{'c' +product.id}}">
+                    <img ng-src="{{ $ctrl.getIcon(product.id)}}">
+                </label>
+            </td>
         </tr>
         </tbody>
     </table>
