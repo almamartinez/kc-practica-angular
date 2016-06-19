@@ -5,6 +5,7 @@ angular.module("whatapop")
         uriProducts: "/api/products",
         uriCategories: "/api/categories",
         uriUsers: "/api/users",
+        uriUploads:"/upload",
         uriImages:"/images/",
         icFavSel:"estrella.png",
         icFavEmpty:"estrella-empty.png"

@@ -1,16 +1,33 @@
 <div class="container">
     <div class="row">
-        <div class="five columns">
+        <div class="twelve columns">
             <label for="product-name">Producto</label>
             <input id="product-name"
+                   class="u-full-width"
                    type="text"
                    ng-model="search.name"
                    placeholder="¿Qué estás buscando?">
         </div>
-        <div class="two columns"> </div>
-        <div class="five columns">
+    </div>
+    <div class="row">
+        <div class="twelve columns">
             <categories-selector cat-selected="search.category.id"></categories-selector>
         </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <label for="distance">Distancia máxima</label>
+            <select class="u-full-width" name="distance" id="distance" ng-model="search.distance">
+                <option value="">Cualquier distancia</option>
+                <option value="5000">A menos de 5km</option>
+                <option value="20000">A menos de 20km</option>
+                <option value="100000">A menos de 100km</option>
+                <option value="500000">A menos de 500km</option>
+                <option value="1400000">A menos de 1400km</option>
+                <option value="5000000">A menos de 5000km</option>
+            </select>
+        </div>
+
     </div>
     <div class="row">
         <div class="twelve columns">

@@ -4,9 +4,11 @@ angular.module("whatapop")
             $router: '<'
         },
         templateUrl: "views/product-list.html",
-        controller: ["SrvProducts","$filter","Settings",function (SrvProducts,$filter,Settings) {
+        controller: ["SrvProducts","SrvUsers","$filter",function (SrvProducts,SrvUsers,$filter) {
             var self = this;
             var originalProducts;
+            var position;
+
             self.$onInit = function () {
 
                 SrvProducts.getProducts().then(
@@ -19,22 +21,44 @@ angular.module("whatapop")
                         //Error!!
 
                     }
-                )
+                );
+
+                SrvUsers.getUsers().then(
+                    function (response) {
+                        self.users = response.data;
+                    }
+                );
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function (data) {
+                            position = {"latitude": data.coords.latitude, "longitude": data.coords.longitude};
+                        }
+                    );
+                }
+
             };
             //Aquí llega cuando se pulsa Buscar
             self.searchClicked = function (search) {
                 //Por si nos pasan undefined:
-                var myFilter = (search || {name: "", category:{id: ""}});
+                var myFilter = (search || {name: "", category:{id: ""},distance:""});
 
                 //Filtramos siempre la lista original
                 var lista = originalProducts;
 
-                //Filtramos:
-                lista = $filter("filter")(lista, myFilter);
+                //Filtramos los productos primero:
+                lista = $filter("filter")(lista, {name:myFilter.name,category:{id:myFilter.category.id}});
+
+                //Buscamos los usuarios dentro de la distancia que han seleccionado:
+                if (myFilter.distance && position){
+                    var closeSellers = $filter("UserDistance")(self.users,myFilter.distance,position);
+                    lista = $filter("valueIn")(lista,closeSellers);
+                }
 
                 // Enlazamos los productos a mostrar
                 self.products = lista;
             };
+
             //Para poner favorito un producto
             self.setFavourite = SrvProducts.setFavourite;
 

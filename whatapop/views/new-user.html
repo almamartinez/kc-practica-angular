@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="five columns">
+        <image-picker image-selected="$ctrl.selectImage(imageFile)"
+                      image-deselected="$ctrl.unselectImage()"></image-picker>
+    </div>
+    <div class="seven columns">
+        <!-- Usamos la directiva que hemos creado -->
+        <formulario-alta al-hacer-click="$ctrl.registerUser(user)" check-user-nick="$ctrl.checkNick(nick)"></formulario-alta>
+    </div>
+</div>

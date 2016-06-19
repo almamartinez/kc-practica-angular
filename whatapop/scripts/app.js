@@ -1,5 +1,8 @@
 
-var dependencies = ["ngComponentRouter","ngSanitize"];
+var dependencies = ["ngComponentRouter",
+    "ngSanitize",
+    "dahr.ng-haversine",
+    "dahr.ng-image-picker"];
 
 //Setter del módulo.
 angular.module("whatapop",dependencies);

@@ -12,7 +12,8 @@ var directive=function () {
             //Inicialización del objeto con la búsqueda.
             scope.search = {
                 name: "",
-                category:{id:""}
+                category:{id:""},
+                distance:""
             };
 
             scope.doSearch = function () {

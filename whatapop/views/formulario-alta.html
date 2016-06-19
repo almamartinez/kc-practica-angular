@@ -1,0 +1,40 @@
+<div class="container">
+    <h3>Nuevo Usuario</h3>
+    <div class="row">
+        <div class="twelve columns">
+            <label for="name">Nombre</label>
+            <input id="name" class="u-full-width" type="text" ng-model="user.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <label for="nick">Nick</label>
+            <input id="nick"
+                   class="u-full-width"
+                   type="text"
+                   ng-model="user.nick"
+                   ng-required="true"
+                   ng-change="checkNick()"
+                   ng-model-options="{ updateOn: 'blur' }">
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <label for="email">Email</label>
+            <input id="email"
+                   class="u-full-width"
+                   type="email"
+                   ng-model="user.email"
+                   ng-required="true"
+                   ng-change="checkEmail()"
+                   ng-model-options="{ updateOn: 'blur' }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="twelve columns">
+            <button ng-disabled="!checkToRegister()"
+                    ng-click="registerUser()">Registrarme</button>
+        </div>
+    </div>
+</div>

@@ -21,10 +21,24 @@ input[type=checkbox] {
     font-size: medium;
     color: red;
 }
-
+.inPage{
+    margin-top: 3rem;
+}
 
 .listName{
     text-decoration: none;
     font-size:large;
     color: #2c2c2c;
+}
+
+.ng-invalid-email{
+    color: red;
+}
+
+button{
+    background-color: #00cc99 ;
+}
+
+button[disabled]{
+    background-color: gainsboro;
 }
